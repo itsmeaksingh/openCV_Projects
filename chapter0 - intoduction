@@ -1,0 +1,82 @@
+learn : 
+    Introduction to Images
+    Installations
+    Read images, videos and webcam
+    Basic processing of image
+    Resizing and cropping
+    Adding shapes and text to image
+    Warping perspective
+    Image stacking / joining Images
+    Colour detection
+        - Trackbars
+    Contouring and shape detection
+        -  Bounding box
+    Face detection with OpenCV Cascades
+
+    Project 1 - Virtual painting
+    Project 2 - Document/paper scanner
+    Project 3 - Number Plate Detector
+
+
+
+Notes : Introduction
+
+    Image :  (wedth) * (height)
+        VGA : 640 * 480
+        HD  : 1280 * 720
+        FHD : 1920 * 1080
+        4K  : 3840 * 2160
+    
+    Binary Image : Black & white (2 lavel : 0 = black, 1 = White)
+    
+    levels : 2 level, 6 level, 16 level, 256 lavels(0-255) (2^8) 
+    
+    8 Bits or 256 levels == Gray Scale Image
+    
+    Now Image RBG format --> r = 2^8, g = 2^8, b = 2^8 
+    So Colored VGA = 640 * 480 * 3 and so on...
+
+leanr commands :
+
+chapter 1: 
+    cv2.imread("path\img.jpg")
+    cv2.imshow("Output",img_saved_var_name)
+    cv2.waitKey(1000) ## 1000 = 1 second, 0 = infinity
+
+    cv2.VideoCapture("path/video.mp4")
+    success(boolean Ture or flass), img(all image load) = cap.read()
+
+
+    cap = cv2.VideoCapture(0)  ## 0 = first camera , 1 = if second camera have
+    cap.set(3(width id), 640) ## 3 stands for width
+    cap.set(4(height id), 480) ## 4 stands for height
+
+chapter 2:
+    cv2.cvtColor(img,COLOR_BGR2GRAY) # cvtColor --> convert the image, COLOR_BGR2GRAY --> normal have rgb but in openCV have BGR 
+    cv2.GaussianBlur() # use for convert the img to GaussianBlur
+    cv2.Canny() # use for edge detection technique
+    cv2.dilate() ## use for edge size increase
+    cv2.erode() ## use for edge size decrease 
+
+
+chapter 3:
+    cv2.resize(img,(100,100)) ## for resize the image
+    img[0:200,200:500] # for image cropping ## (heighi, width)
+
+chapter 4:
+	cv2.line() for line
+	cv2.rectangle() for rectangle
+	cv2.circle() for circle
+	cv2.putText() for text
+
+chapter 5: 
+    cv2.getPerspectiveTransform() give the image points
+    cv2.warpPerspective() create new img.... 
+
+chapter 6:
+    np.hstack((img1,img1)) ## Horizontally stack
+    np.vstack((img1,img1)) ## Vertically stack
+    ## multiple image stack Horizontally & Vertically
+
+chapter 7:
+    
